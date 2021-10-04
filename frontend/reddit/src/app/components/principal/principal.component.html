@@ -1,0 +1,12 @@
+<div id="principalContainer">
+
+    <div class="cards" *ngFor='let theme of data'><a [routerLink]="['/theme',theme.id]">
+        <p id="displayName"><strong>{{theme.display_name}}</strong></p>
+        <div *ngIf="theme.icon_img != null; then bd else inter"></div>
+        <ng-template #bd><img src={{theme.icon_img}}/></ng-template>
+        <ng-template #inter><img src="../../../assets/img/reddit.png"/></ng-template>
+        <p id="subscribers"><strong>Subscribers: </strong>{{theme.subscribers}}</p>
+        <p id="subredditType"><strong>Subreddit type: </strong>{{theme.subreddit_type}}</p>
+        <p id="publicDescription"><strong>Public description: </strong>{{theme.public_description}}</p>
+    </a></div>
+</div>

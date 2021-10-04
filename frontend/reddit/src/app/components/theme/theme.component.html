@@ -1,0 +1,25 @@
+<div id="theme">
+    <div id="baner">
+        <div  *ngIf="data.banner_background_image == null; then bd2 else inter2"></div>
+        <ng-template #bd2><img src={{data.banner_img}}/></ng-template>
+        <ng-template #inter2><img src={{data.banner_background_image}}/></ng-template>
+    </div>
+    
+    <div id="information">  
+        <div id="title">
+            <div *ngIf="data.header_img != null; then bd else inter"></div>
+            <ng-template #bd><img src={{data.header_img}}/></ng-template>
+            <ng-template #inter><img src={{data.community_icon}}/></ng-template>
+            <h1>{{data.title}}</h1>
+        </div>
+        <div><span><strong>Description:</strong> <br></span>{{data.description}}</div>
+        <div>
+            <p><strong>Subscribers: </strong> {{data.subscribers}}</p>
+            <p *ngIf="data.videostream_links_count != null"><strong>videostream links count: </strong>{{data.videostream_links_count}}</p>
+        </div>
+        <div>
+            <p>{{data.submit_text}}</p>
+            <p><br><br>for more information visit the official website <a href="https://www.reddit.com/{{data.url}}">https://www.reddit.com/{{data.url}}</a></p>
+        </div>
+    </div>
+</div>
