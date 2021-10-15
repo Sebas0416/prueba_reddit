@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ThemeService } from 'src/app/services/Theme.service';
 
 @Component({
@@ -12,7 +12,7 @@ export class ThemeComponent implements OnInit {
   public id: any;
   public isValid = null;
 
-  constructor(public themeService: ThemeService, private ruote: ActivatedRoute) {
+  constructor(public themeService: ThemeService, private ruote: ActivatedRoute, private router: Router) {
     this.data = {}
    }
 
@@ -24,7 +24,11 @@ export class ThemeComponent implements OnInit {
       let splitBanner = data[0].banner_background_image.split("?");
       this.data.community_icon = splitCommunity[0];
       this.data.banner_background_image = splitBanner[0];
-      console.log(this.data.title)
+      console.log(this.data);
     })
+  }
+
+  goBack(){
+    this.router.navigate(['']);
   }
 }

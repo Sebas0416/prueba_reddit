@@ -1,4 +1,7 @@
 <div id="theme">
+    <div id="home">
+        <button (click)="goBack()">Home</button>
+    </div>
     <div id="baner">
         <div  *ngIf="data.banner_background_image == null; then bd2 else inter2"></div>
         <ng-template #bd2><img src={{data.banner_img}}/></ng-template>
